@@ -1,5 +1,6 @@
 # Git Definitions
 Completed by: Daniel Welsh
+Date: Jan 9, 2017
 
 **Instructions: ** Define each of the following Git concepts.
 
