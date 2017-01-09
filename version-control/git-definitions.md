@@ -10,7 +10,6 @@ Version control is software that tracks additions and deletions to work in a cro
 
 A branch creates a seperate copy of the project that you are working on. Branching is very useful as it allows developers to collaborate together, work on seperate features, then merge the features back together when completed. 
  
-
 * What is a commit? What makes a good commit message?
 
 A commit is a process where a developer saves a version of files that have been "added" to the staging area. Each commit is submited with a comment that describes what has been done during that commit period. It is best practice to write comments in present tense and summarize the work that was completed. Good comments will make it easier to identify commit versions when looking back through your log.
