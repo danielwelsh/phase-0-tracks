@@ -1,4 +1,5 @@
 # Git Definitions
+Completed by: Daniel Welsh
 
 **Instructions: ** Define each of the following Git concepts.
 
@@ -18,4 +19,4 @@ A commit is a process where a developer saves a version of files that have been 
 
 Merge conflicts are errors that are made when merging files that have made changes to the same line. When this occurs the computer will not know how to properly merge the files together. Merge conflicts can also occur when someone deletes the file on the master branch and there is no file to merge to.
 
-Here is a link to a page that explains how to fix and edit merge conflicts that may occur: https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/
+Here is a link to a page that explains how to fix and edit merge conflicts that may occur: https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/. 
