@@ -18,3 +18,5 @@ button- Used to create a button. Like inputs set the type. For example type="sub
 name- Name of form element. 
 
 action method- Identifies which page is to be loaded once the form is completed. 
+
+placeholder- This tag will fill the input box with a predetermined message. 
