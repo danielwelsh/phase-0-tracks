@@ -1,0 +1,16 @@
+#contact-info p {
+font-size: .8em;
+}
+
+
+.job {background-color: #e9e5dc;
+border-radius: 15px;
+padding: 3px;
+margin-top: 5px;
+margin-bottom: 5px}
+
+.job-list {font-size: .8em}
+
+#email:hover {color: blue}
+
+section section {font-family: Times;}
