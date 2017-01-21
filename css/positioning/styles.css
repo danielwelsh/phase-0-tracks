@@ -1,0 +1,31 @@
+body {
+	width: 80%;
+	margin: 0 auto;
+	padding: 50px;
+}
+
+
+#octopus {
+	position: relative;
+	z-index: 1;
+	top: 100px;
+	left: 200px;
+
+}
+
+
+#glasses {
+	position: absolute;
+	top: 250px;
+	left: 313px;
+	z-index: 2;
+}
+
+#hat {
+	position: absolute;
+	bottom: 80px
+	left: 300px;
+	z-index: 3;
+}
+
+
