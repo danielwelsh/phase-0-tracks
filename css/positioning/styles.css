@@ -1,8 +1,9 @@
 body {
-	width: 80%;
-	margin: 0 auto;
-	padding: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 20px;
 }
+
 
 
 #octopus {
@@ -13,19 +14,18 @@ body {
 
 }
 
-
-#glasses {
-	position: absolute;
-	top: 250px;
-	left: 313px;
-	z-index: 2;
-}
-
 #hat {
 	position: absolute;
-	bottom: 80px
-	left: 300px;
+	top: 50px;
+	left: 210px;
 	z-index: 3;
 }
 
+
+#glasses {
+	position: absolute;
+	top: 225px;
+	left: 260px;
+	z-index: 2;
+}
 
