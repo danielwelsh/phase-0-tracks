@@ -1,0 +1,14 @@
+Elevator Use Algoritm
+
+- Find elevator buttons
+- Take input on if you want to go up or down
+	- Press the desired button
+-Wait until the elevator arrives and opens
+-Enter the elevator
+-Locate the elevator control panel 
+-Take input for what floor you want to go to
+	-Press the button for the desired floor
+-Wait for doors to close
+-Monitor the current floor
+	-When current floor equals desired floor wait for door to open
+	-When door is open walk out of the elevator and onto the desired floor
