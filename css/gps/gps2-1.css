@@ -1,0 +1,60 @@
+
+img {max-width: 12%;
+  min-width: 5%;
+	height: auto;
+  display: inline-block;
+  vertical-align: middle;
+  float: left;
+  margin: 0.5%;
+	}
+
+header {
+	border-width: 1px;
+  border-color: blue;
+  border-style: solid;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: auto;
+  background-color: white;
+ 
+}
+
+
+section {
+	border-width: 1px;
+  border-color: blue;
+  border-style: solid;
+  display: inline-block;
+  max-width: 500px;
+}
+
+footer {
+  border-width: 1px;
+  border-color: blue;
+  border-style: solid;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: black;
+  color: white;
+}
+
+.column-1 {
+  width: 45%;
+  display: inline-block;
+  margin: auto;
+  padding: 1%;
+  vertical-align: text-top;
+  background-color: red;
+  
+  
+}
+
+.column-2 {
+  width: 45%;
+  display: inline-block;
+  margin: auto;
+  padding: 1%;
+  vertical-align: text-top;
+  background-color: green;
+}
