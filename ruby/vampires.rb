@@ -8,7 +8,7 @@ name = gets.chomp
 puts "Please enter your birth year:"
 birth_year = gets.chomp
 puts "Please enter your age:"
-age = gets.chomp
+age = gets.chomp.to_i
 
 
 
@@ -18,13 +18,15 @@ until vaild_input == TRUE
   puts "Would you like garlic bread (Enter Yes or No):"
   bread = gets.chomp
 
-  if bread == ("Yes") || ("No")
-    vaild_input = TRUE
-  else
-    vaild_input = FALSE
-    puts "That is not valid input. Please try again."
-  end
+    if bread == ("Yes") || bread == ("No")
+      vaild_input = TRUE
+    else
+      vaild_input = FALSE
+      puts "That is not valid input. Please try again."
+    end
 end
+
+
 
 
 #Have the user input if they have enrolled in the company health insurance The input is validated. 
@@ -33,51 +35,58 @@ until vaild_input == TRUE
   puts "Have you enrolled in the company health insurance (Enter Yes or No):"
   insurance = gets.chomp
 
-  if insurance == ("Yes") || ("No")
-      vaild_input = TRUE
-  else
-    vaild_input = FALSE
-    puts "That is not valid input. Please try again."
-  end
+    if insurance == ("Yes") || insurance == ("No")
+        vaild_input = TRUE
+    else
+      vaild_input = FALSE
+      puts "That is not valid input. Please try again."
+    end
 
 end
 
 
 
-puts 2017 - birth_year.to_i
 
 
 
 #Vampire testing
 
 #Age Test
-if ((2017 - (birth_year.to_i)) == age)
-  puts (2017 - (birth_year.to_i)) == age
-  age_test = FALSE
-  puts age_test
+if (2017 - birth_year.to_i) == age
+  #The person is not a vampire
+  age_test = TRUE
+
+
 else
+  #The person is a vampire
   age_test = FALSE
-  puts age_test
-  puts (2017 - (birth_year.to_i)) == age
+
 end 
-puts age_test
+
+
 
 #Garlic Test
-if bread == "No"
-  garlic_test = FALSE
-  puts garlic_test
-else 
+if bread == "Yes"
+  #The person is not vampire
   garlic_test = TRUE
-  puts garlic_test
+
+else 
+  #The person is a vampire
+  garlic_test = FALSE
+
 end 
 
+
+
 #Health Insurance Test
-if insurance == "No"
-  insurance_test = FALSE
-  puts insurance_test
-else
+if insurance == "Yes"
+  #The person is not a vampire
   insurance_test = TRUE
-  puts insurance_test
+
+else
+  #The person is a vampire
+  insurance_test = FALSE
+
 end 
 
 
@@ -86,30 +95,29 @@ end
 #Testing the results to see how much we think they are a vampire
 
 #If all tests say that they are not a vampire
-if (age_test == FALSE) && (garlic_test == FALSE) && (insurance_test == FALSE)
+#   Not a vampire          Not a vampire             Not a vampire
+if age_test == TRUE && garlic_test == TRUE && insurance_test == TRUE
  prob = 1
- puts prob
 end
 
 
 #Got the age test wrong and either hates garlic bread or is enrolled in the company health insurance
-if (age_test == TRUE) && ( (garlic_test == TRUE) || (insurance == TRUE) )
+#       Is a vampire            Is a vampire             Is a vampire 
+if age_test == FALSE && ( garlic_test == FALSE || insurance_test == FALSE )
   prob = 2
-  puts prob
 end
 
 
 #Got the age test wrong and the garlic test and the insurance test
-if (age_test == TRUE) && (garlic_test == TRUE) && (insurance == TRUE)
+#      Is a vampire          Is a vampire            Is a vampire
+if age_test == FALSE && garlic_test == FALSE && insurance_test == FALSE
   prob = 3
-  puts prob
 end
 
 
 #Has a name that would suggest they are a vampire
 if name == ("Drake Cula" || "Tu Fang")
   prob = 4
-  puts prob
 end
 
 
