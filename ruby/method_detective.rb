@@ -7,10 +7,10 @@
 # "iNvEsTiGaTiOn".<???>
 # => “InVeStIgAtIoN”
 
-# "zom".<???>
+# "zom".insert(1,'o')
 # => “zoom”
 
-# "enhance".<???>
+# "enhance".prepend("    ").concat("    ")
 # => "    enhance    "
 
 # "Stop! You’re under arrest!".<???>
