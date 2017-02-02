@@ -42,3 +42,80 @@ end
 
 p car_type
 p new_cars
+
+
+
+
+
+#Release 2- Item 1
+
+number = [1,2,3,4,5,6,7,8,9]
+new_list = []
+
+number.keep_if { |x| x < 5}
+
+
+p number
+
+
+
+
+
+#Release 2- Item 2
+
+number = [1,2,3,4,5,6,7,8,9]
+new_list = []
+
+
+new_list = number.select do |digit|
+  digit > 5
+end
+
+p number
+p new_list
+
+
+#Release 2- Item 3
+
+
+number = {first: 1, second: 2,third: 3,forth: 4,fifth: 5}
+new_hash = {}
+
+
+new_hash = number.partition {|i,n| n.even?}
+p new_hash
+
+
+
+#Release 2- Item 4 
+
+
+
+number = [1,2,3,4,5,6,7,8,9]
+new_hash = []
+
+new_hash = number.take_while { |i| i < 3}
+
+p number
+p new_hash
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
