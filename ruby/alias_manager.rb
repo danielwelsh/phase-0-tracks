@@ -61,8 +61,6 @@ end
 
 def user_input(name_list)
   status = TRUE 
-  name_before = [ ]
-  name_after = [ ]
 
 
   #Loop that work validates if the user would like to continue 
@@ -70,7 +68,7 @@ def user_input(name_list)
     
     puts "Please enter your name:"
     name = gets.chomp
-    
+
 
 
     #convert everything to lowercase
@@ -88,14 +86,11 @@ def user_input(name_list)
     #The first letters of each word are capitalized
     new_name = new_name.split.map(&:capitalize).join(' ')
 
-    #Name from before and name after are added as a hash. 
-    name_list = {name_before: 'hi'}
-    p name_list
+    #Name before and after is added to an array 
+    name_list << [name, new_name]
     #Output the final name
     puts "Your new name is #{new_name}"
-
-
-
+    puts name_list
 
 
     puts "Would you like to enter another name? If no type 'exit'. Type anything else to continue:"
@@ -113,14 +108,13 @@ def user_input(name_list)
 
   puts "Thanks for using this program"
   
-  #The hash is returned from the funtion
-  return name_list
+  #The names are printed for the user to see
+  puts "There were #{name_list.length} name(s) converted."
+  name_list.each { |sublist| puts "#{sublist[0]} is also known as #{sublist[1]}"}
 
 end
 
-name_list = {}
+name_list = []
 
 
 user_input(name_list)
-
-p name_list
