@@ -9,9 +9,8 @@
 
 
 
-def fake_name (name)
-  #Name is split by each letter
-  letters = name.split('')
+def fake_name (letters)
+  
   #The position of the first and last letter are swapped
   letters[0], letters[-1] = letters[-1], letters[0]
 
@@ -43,6 +42,10 @@ def fake_name (name)
     elsif  letter == 'z'
       letter = 'b'
 
+    elsif letter == ' '
+      letter = ' '
+      
+
     else
     
 
@@ -51,16 +54,73 @@ def fake_name (name)
 
   end
       
-      
+  return letters   
 end
 
 
 
-def method_name
+def user_input(name_list)
+  status = TRUE 
+  name_before = [ ]
+  name_after = [ ]
+
+
+  #Loop that work validates if the user would like to continue 
+  while status == TRUE
+    
+    puts "Please enter your name:"
+    name = gets.chomp
+    
+
+
+    #convert everything to lowercase
+    name.downcase!
+
+    #Name is split by each letter
+    letters = name.split('')
+
+    #The encoding is done in other method
+    fake_name(letters)
+
+    #The array is placed back together
+    new_name = letters.join
+
+    #The first letters of each word are capitalized
+    new_name = new_name.split.map(&:capitalize).join(' ')
+
+    #Name from before and name after are added as a hash. 
+    name_list = {name_before: 'hi'}
+    p name_list
+    #Output the final name
+    puts "Your new name is #{new_name}"
+
+
+
+
+
+    puts "Would you like to enter another name? If no type 'exit'. Type anything else to continue:"
+    status = gets.chomp
+
+    if status == 'exit'
+      status = FALSE
+
+    else
+      status = TRUE
+    end
   
+  end
+
+
+  puts "Thanks for using this program"
+  
+  #The hash is returned from the funtion
+  return name_list
+
 end
 
+name_list = {}
 
 
+user_input(name_list)
 
-p fake_name("danieluz")
+p name_list
