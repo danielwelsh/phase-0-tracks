@@ -24,6 +24,29 @@ class Santa
 		puts "Age: #{@age}"
 	end
 
+	#Setter methods
+	def age=(new_age)
+		@age = new_age
+	end
+
+
+	def get_mad_at=(name)
+		@reindeer_ranking << name
+	end
+
+	def gender=(new_gender)
+		@gender = new_gender
+	end
+
+	#Getter method to access within
+
+	def age
+		@age
+	end
+
+	def ethnicity
+		@ethnicity
+	end
 
 end
 
@@ -38,5 +61,16 @@ while i < genders.length
 	santas << Santa.new(genders[i], ethnicities[i])
 	i += 1
 end
+
+
+new_instance = Santa.new("male", "french")
+
+new_instance.age = 4
+puts new_instance.age
+
+
+
+
+
 
 
