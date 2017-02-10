@@ -1,5 +1,12 @@
 class Santa
 
+	#Getter method to access within
+	attr_reader :age, :ethnicity, :gender
+
+	#Setter methods
+	attr_accessor :age, :gender
+
+
 	def speak
 		puts 'Ho, ho, ho! Haaaapy holidays!'
 	end
@@ -25,48 +32,42 @@ class Santa
 	end
 
 	#Setter methods
-	def age=(new_age)
-		@age = new_age
-	end
-
 
 	def get_mad_at=(name)
 		@reindeer_ranking << name
 	end
 
-	def gender=(new_gender)
-		@gender = new_gender
-	end
+	
 
-	#Getter method to access within
-
-	def age
-		@age
-	end
-
-	def ethnicity
-		@ethnicity
-	end
 
 end
 
 
-genders = ["cat", "male", "female", "fluid", "N/A"]
-ethnicities = ["american", "canadian", "french", "english", "chinese"]
+def create_santa(num)
+	
+	genders = ["cat", "male", "female", "fluid", "N/A"]
+	ethnicities = ["american", "canadian", "french", "english", "chinese"]
+	i = 0
 
-santas = []
-
-i = 0
-while i < genders.length 
-	santas << Santa.new(genders[i], ethnicities[i])
-	i += 1
+	while i < num
+		santa_instance = Santa.new(genders.sample, ethnicities.sample)
+		age = rand(0..140)
+		i += 1
+		puts "Santa's gender is: #{santa_instance.gender}"
+		puts "Santa's ethnicity is: #{santa_instance.ethnicity}"
+		puts "Santa's age is: #{santa_instance.age}"
+	end
+	
 end
 
 
-new_instance = Santa.new("male", "french")
 
-new_instance.age = 4
-puts new_instance.age
+
+create_santa(55)
+
+
+
+
 
 
 
