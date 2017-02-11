@@ -7,11 +7,33 @@ class Game
 	#Setter/getter methods- want to be able to set the word from outside, and set guess from outside
 	attr_accessor :word, :char
 
+
+
 	def initiate
 		puts "Welcome to the word guessing game"
-		word = ''
+		@char = ''
 	end
 
+
+
+
+	def convert_word(user_input)
+		#Create the instance array variable for blanks word 
+		@blanks_word = []
+		@word = ''
+		
+		#Convert word to blanks
+		user_input.split('').each do 
+			@blanks_word << '_'
+		end
+		
+		#Convert back to string for printout
+		@blanks_word.each do |letter|
+			@word += letter
+		end
+
+		@word
+	end
 
 
 
@@ -19,7 +41,8 @@ end
 
 
 
-
+round = Game.new
+p round.convert_word('hello')
 
 
 
