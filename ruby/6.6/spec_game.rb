@@ -12,4 +12,7 @@ describe Game do
 		expect(game.convert_word('hello')).to eq("_____")
 	end
 
+	it "The word that is being checked is a match"
+		expect(game.word_checker('hello').to eq(true))
+
 end
