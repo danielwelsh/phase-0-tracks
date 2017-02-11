@@ -9,21 +9,24 @@ class Game
 
 
 
-	def initiate
+	def initialize
 		puts "Welcome to the word guessing game"
-		@char = ''
+		#Create the instance array variable for blanks word 
+		@blanks_word = []
+		@master_word = []
+		@word = ''
 	end
 
 
 
 
-	def convert_word(user_input)
-		#Create the instance array variable for blanks word 
-		@blanks_word = []
-		@word = ''
-		
+	def convert(user_input)
+		#Stores master word for later comparison
+		@master_word = user_input
+		puts @master_word
+
 		#Convert word to blanks
-		user_input.split('').each do 
+		user_input.split('').each do
 			@blanks_word << '_'
 		end
 		
@@ -32,17 +35,36 @@ class Game
 			@word += letter
 		end
 
+		#Implicit return
 		@word
 	end
 
 
+
+
+
+	def checker(word)
+		#input: word originating in the driver code
+		#output: if the word is a match or not (true or false)
+		puts "Here is the master word : #{@master_word}"
+		#If the word is correct match is set to true
+		if word == @master_word
+			match = true
+
+		#Else if they are wrong match is set to false
+		else
+			match = false
+		end	
+
+	end
 
 end
 
 
 
 round = Game.new
-p round.convert_word('hello')
+round.convert('hello')
+p round.checker('hello')
 
 
 
