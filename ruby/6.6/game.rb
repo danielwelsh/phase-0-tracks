@@ -4,10 +4,15 @@
 
 class Game 
 
-	#Setter methods- want to be able to set the word from outside, and set guess from outside
+	#Setter/getter methods- want to be able to set the word from outside, and set guess from outside
 	attr_accessor :word, :char
-	#Getter methods- allows for the word and guess to be readable in diver code
-	attr_reader :word, :char
+
+	def initiate
+		puts "Welcome to the word guessing game"
+		word = ''
+	end
+
+
 
 
 end
@@ -16,10 +21,9 @@ end
 
 
 
-#Create reader and getter variables
 
 
-#Method- Guessing functions
+
 
 
 
