@@ -8,5 +8,8 @@ describe Game do
 		expect(game.initiate).to eq('')
 	end
 
+	it "The inputed word is converted to ____ form" do
+		expect(game.convert_word('hello')).to eq("_____")
+	end
 
 end
