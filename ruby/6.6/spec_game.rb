@@ -9,14 +9,21 @@ describe Game do
 	# end
 
 	it "The inputed word is converted to ____ form" do
-		expect(game.convert('hello')).to eq("_____")
+		expect(game.convert('hello')).to eq(["_", "_", "_", "_", "_"])
 	end
 
 	it "The word that is being checked is a match" do 
 		round = Game.new
 		round.convert('hello')
 
-		expect(round.checker('hello')).to eq(true)
+		expect(round.word_checker('hello')).to eq(true)
+	end
+
+	it "The letter that is being checked is a match in word that is being guessed" do 
+		round = Game.new
+		round.convert('hello')
+
+		expect(round.char_checker('h')).to eq(["h", "_", "_", "_", "_"])
 	end
 
 end
