@@ -5,9 +5,7 @@
 class Game 
 
 	#Setter/getter methods- want to be able to set the word from outside, and set guess from outside
-	attr_accessor :word, :char
-
-
+	attr_accessor :blanks, :blanks_string, :input_string, :input_string_array
 
 	def initialize
 		puts "Welcome to the word guessing game"
@@ -92,10 +90,75 @@ end
 
 
 
+
+
+#Driver Code
+
 round = Game.new
-round.convert('hello')
-round.word_checker('hello')
-p round.char_checker('h')
+
+puts "User 1: Please enter the word that User 2 will attempt to guess:"
+string = gets.chomp
+round.convert(string)
+
+puts "\nUser 2: Here is the word that you must guess: #{round.blanks}"
+puts "User 2: You are limited to a number of guesses equal to the length of word. You have #{round.blanks.length} guesses."
+
+counter = 0
+
+while counter < round.blanks.length
+	
+	validation = 'no'
+	#Decison branch for word, letter, unknown input, and repeated input (This comes later)
+	until validation == 'yes'
+	
+		puts "User 2: Would you like to guess a letter or the whole word ('l' for letter, 'w' for word)?"
+		input = gets.chomp.to_s
+
+
+		if input == 'l'
+			puts "User 2: You have chosen to enter a letter."
+			validation = 'yes'
+		elsif input == 'w'
+			puts "User 2: You have chosen to enter a word."
+			validation = 'yes'
+		else
+			puts "User 2: That is incorrect input. Try again."
+			validation = 'no'
+		end 
+
+	end
+
+	#Logic branch for if they have chosen l or w
+	if input == 'l'
+		
+	elsif input == 'w'
+		puts 'What is you word guess?'
+		word = gets.chomp
+		if round.word_checker(word) == true
+			puts "\nYou guessed the right word and won the game!"
+			break
+		elsif round.word_checker(word) ==  false
+			puts "\nYou guessed the wrong word!"
+		end
+			
+	end
+
+		
+
+
+
+	
+	counter +=	1
+		
+	
+end
+
+
+
+
+# round.convert('hello')
+# round.word_checker('hello')
+# p round.char_checker('h')
 
 
 
