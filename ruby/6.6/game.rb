@@ -14,6 +14,7 @@ class Game
 		@blanks_string = ''
 		@input_string = ''
 		@input_string_array = []
+		@tracker = []
 		
 	end
 
@@ -87,8 +88,23 @@ class Game
 	end
 
 
-	def 
-		
+	def tracker(char_input)
+		#if the character is included return message that it has been used already and try again.
+		if @tracker.include? char_input
+			puts "\nUser 2: This word has already been used. Try Again.\n"
+			allow = 'no'
+
+		#else return nothing and allow the program to continue as usual. 
+		else
+			allow = 'yes'
+		end
+
+		#Add the character to the tracker list.
+		@tracker << char_input
+
+		#Implicit return 
+		allow
+
 	end
 
 
@@ -112,25 +128,32 @@ end
 
 #Driver Code
 
+#Initiate a new instance of the class 
 round = Game.new
 
+
+#Get user input from the User 1
 puts "User 1: Please enter the word that User 2 will attempt to guess:"
 string = gets.chomp
 round.convert(string)
 
+
+#Provide basic instructions to User 2
 puts "\nUser 2: Here is the word that you must guess: #{round.blanks}"
 puts "User 2: You are limited to a number of guesses equal to the length of word. You have #{round.blanks.length} guesses."
 
+
+#Set counter are parent while loop that will initiate the proper number of guessing rounds
 counter = 0
 
 while counter < round.blanks.length
 	
-
-	validation = 'no'
+	#Collect user input as to what type of guess they want to make. While loop to check for valid input.
 	#Decison branch for word, letter, unknown input, and repeated input (This comes later)
+	validation = 'no'
 	until validation == 'yes'
 	
-		puts "User 2: Would you like to guess a letter or the whole word ('l' for letter, 'w' for word)?"
+		puts "\nUser 2: Would you like to guess a letter or the whole word ('l' for letter, 'w' for word)?"
 		input = gets.chomp.to_s
 
 
@@ -151,16 +174,23 @@ while counter < round.blanks.length
 
 
 
-	#Logic branch for if they have chosen letter
+	#Branch for if they have chosen letter
 	if input == 'l'
-		puts "What is the letter you guess?"
-		char_input = gets.chomp
 
-		#This character input must be checked to see that it has not been used already 
+		#Set up loop to ensure that they can make a new guess and not be punished for guessing the same letter more than once
+		allow = 'no'
+		until allow == 'yes'
 
+			#Ask for user guess input
+			puts "What is the letter you guess?"
+			char_input = gets.chomp
 
-		p round.char_checker(char_input)
+			#This character input must be checked to see that it has not been used already 
+			allow = round.tracker(char_input)
+		end
 
+		puts "Here is the updated word #{round.char_checker(char_input)}" 
+		
 
 	#Branch for if they have chosen word
 	elsif input == 'w'
