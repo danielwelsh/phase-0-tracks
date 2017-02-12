@@ -30,8 +30,9 @@ describe Game do
 		round = Game.new 
 		round.convert('hello')
 		round.char_checker('h')
+		round.tracker('h')
 
-		expect(round.tracker('h')).to eq('Used')
+		expect(round.tracker('h')).to eq('no')
 
 	end
 
