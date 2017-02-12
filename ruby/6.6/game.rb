@@ -70,13 +70,18 @@ class Game
 		if @input_string_array.include? char_input
 
 			#If the char is a match we want to iterate through each letter and replace the blank with the letter. 
-			
+			i = 0
 			@input_string_array.each do |char|
-				if char_input == @input_string_array[@input_string_array.index(char)]
+				puts i
+				puts @input_string_array[i]
+				if char_input == @input_string_array[i]
 					
 					#Replace the blank with the character
-					@blanks[@input_string_array.index(char)] = char_input
+					@blanks[i] = char_input
+					p "The word is being replaced"
+				
 				end
+			i += 1
 			end
 			
 		else
