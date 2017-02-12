@@ -72,15 +72,12 @@ class Game
 			#If the char is a match we want to iterate through each letter and replace the blank with the letter. 
 			i = 0
 			@input_string_array.each do |char|
-				puts i
-				puts @input_string_array[i]
 				if char_input == @input_string_array[i]
 					
 					#Replace the blank with the character
 					@blanks[i] = char_input
-					p "The word is being replaced"
-				
 				end
+
 			i += 1
 			end
 			
@@ -149,9 +146,11 @@ puts "User 2: You are limited to a number of guesses equal to the length of word
 
 
 #Set counter are parent while loop that will initiate the proper number of guessing rounds
-counter = 0
+counter = 1
 
-while counter < round.blanks.length
+while counter < round.blanks.length + 1
+
+	puts "\n\n\nGuess #{counter}:"
 	
 	#Collect user input as to what type of guess they want to make. While loop to check for valid input.
 	#Decison branch for word, letter, unknown input, and repeated input (This comes later)
@@ -163,13 +162,13 @@ while counter < round.blanks.length
 
 
 		if input == 'l'
-			puts "User 2: You have chosen to enter a letter."
+			puts "\nUser 2: You have chosen to enter a letter."
 			validation = 'yes'
 		elsif input == 'w'
-			puts "User 2: You have chosen to enter a word."
+			puts "\nUser 2: You have chosen to enter a word."
 			validation = 'yes'
 		else
-			puts "User 2: That is incorrect input. Try again."
+			puts "\nUser 2: That is incorrect input. Try again."
 			validation = 'no'
 		end 
 
@@ -194,8 +193,10 @@ while counter < round.blanks.length
 			allow = round.tracker(char_input)
 		end
 
-		puts "Here is the updated word #{round.char_checker(char_input)}" 
+		puts "\nHere is the updated word #{round.char_checker(char_input)}" 
 		
+
+
 
 	#Branch for if they have chosen word
 	elsif input == 'w'
