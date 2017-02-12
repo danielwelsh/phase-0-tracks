@@ -26,4 +26,13 @@ describe Game do
 		expect(round.char_checker('h')).to eq(["h", "_", "_", "_", "_"])
 	end
 
+	it "The letter/word that has been guessed has been added" do 
+		round = Game.new 
+		round.convert('hello')
+		round.char_checker('h')
+
+		expect(round.tracker('h')).to eq('Used')
+
+	end
+
 end
