@@ -60,7 +60,8 @@ class Game
 
 
 
-
+	#If the letter is in word, fill in the blank elsif the letter has already been guessed this will not count against the user. the loop should be broken to prevent the counter being added to. 
+	#Else print a message that this letter was not included
 
 	def char_checker(char_input)
 		#The letter is checked to be included in the word. 
@@ -68,25 +69,42 @@ class Game
 		if @input_string_array.include? char_input
 
 			#If the char is a match we want to iterate through each letter and replace the blank with the letter. 
-			i = 0
+			
 			@input_string_array.each do |char|
-				if char == @input_string_array[i]
+				if char_input == @input_string_array[@input_string_array.index(char)]
+					
 					#Replace the blank with the character
-					@blanks[i] = char
+					@blanks[@input_string_array.index(char)] = char_input
 				end
 			end
 			
 		else
-			
+			puts "That letter does not exist in the word."
 		end
-						#If the letter is in word, fill in the blank elsif the letter has already been guessed this will not count against the user. the loop should be broken to prevent the counter being added to. 
-						#Else print a message that this letter was not included
+						
 	
 		@blanks
 	end
 
 
+	def 
+		
+	end
+
+
+
+
+
+
 end
+
+
+
+
+
+
+
+
 
 
 
@@ -107,6 +125,7 @@ counter = 0
 
 while counter < round.blanks.length
 	
+
 	validation = 'no'
 	#Decison branch for word, letter, unknown input, and repeated input (This comes later)
 	until validation == 'yes'
@@ -128,23 +147,39 @@ while counter < round.blanks.length
 
 	end
 
-	#Logic branch for if they have chosen l or w
+
+
+
+
+	#Logic branch for if they have chosen letter
 	if input == 'l'
-		
+		puts "What is the letter you guess?"
+		char_input = gets.chomp
+
+		#This character input must be checked to see that it has not been used already 
+
+
+		p round.char_checker(char_input)
+
+
+	#Branch for if they have chosen word
 	elsif input == 'w'
 		puts 'What is you word guess?'
-		word = gets.chomp
-		if round.word_checker(word) == true
+		word_input = gets.chomp
+		if round.word_checker(word_input) == true
 			puts "\nYou guessed the right word and won the game!"
 			break
-		elsif round.word_checker(word) ==  false
+		elsif round.word_checker(word_input) ==  false
 			puts "\nYou guessed the wrong word!"
 		end
+			
+	
 			
 	end
 
 		
 
+	#A test what will check if blanks == the intial input string to catch it they have guess the word with letters alone
 
 
 	
