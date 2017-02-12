@@ -12,9 +12,11 @@ class Game
 	def initialize
 		puts "Welcome to the word guessing game"
 		#Create the instance array variable for blanks word 
-		@blanks_word = []
-		@master_word = []
-		@word = ''
+		@blanks = []
+		@blanks_string = ''
+		@input_string = ''
+		@input_string_array = []
+		
 	end
 
 
@@ -22,33 +24,33 @@ class Game
 
 	def convert(user_input)
 		#Stores master word for later comparison
-		@master_word = user_input
-		puts @master_word
+		@input_string = user_input
 
 		#Convert word to blanks
-		user_input.split('').each do
-			@blanks_word << '_'
+		user_input.split('').each do |letter|
+			@blanks << '_'
+			@input_string_array << letter
 		end
 		
 		#Convert back to string for printout
-		@blanks_word.each do |letter|
-			@word += letter
+		@blanks.each do |letter|
+			@blanks_string += letter
 		end
 
 		#Implicit return
-		@word
+		@blanks
 	end
 
 
 
 
 
-	def checker(word)
+	def word_checker(word_input)
 		#input: word originating in the driver code
 		#output: if the word is a match or not (true or false)
-		puts "Here is the master word : #{@master_word}"
+
 		#If the word is correct match is set to true
-		if word == @master_word
+		if word_input == @input_string
 			match = true
 
 		#Else if they are wrong match is set to false
@@ -58,13 +60,42 @@ class Game
 
 	end
 
+
+
+
+
+	def char_checker(char_input)
+		#The letter is checked to be included in the word. 
+	
+		if @input_string_array.include? char_input
+
+			#If the char is a match we want to iterate through each letter and replace the blank with the letter. 
+			i = 0
+			@input_string_array.each do |char|
+				if char == @input_string_array[i]
+					#Replace the blank with the character
+					@blanks[i] = char
+				end
+			end
+			
+		else
+			
+		end
+						#If the letter is in word, fill in the blank elsif the letter has already been guessed this will not count against the user. the loop should be broken to prevent the counter being added to. 
+						#Else print a message that this letter was not included
+	
+		@blanks
+	end
+
+
 end
 
 
 
 round = Game.new
 round.convert('hello')
-p round.checker('hello')
+round.word_checker('hello')
+p round.char_checker('h')
 
 
 
