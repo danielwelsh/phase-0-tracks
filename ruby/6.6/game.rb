@@ -93,7 +93,7 @@ class Game
 	def tracker(char_input)
 		#if the character is included return message that it has been used already and try again.
 		if @tracker.include? char_input
-			puts "\nUser 2: This word has already been used. Try Again.\n"
+			puts "\nUser 2: This letter has already been used. Try Again.\n"
 			allow = 'no'
 
 		#else return nothing and allow the program to continue as usual. 
@@ -216,7 +216,15 @@ while counter < round.blanks.length + 1
 		
 
 	#A test what will check if blanks == the intial input string to catch it they have guess the word with letters alone
-
+	
+	if round.blanks == round.input_string_array
+		puts "\n\nYou guessed the right word and won the game!"
+		break
+	elsif (round.blanks != round.input_string_array) && (counter == round.blanks.length)
+		puts "\n\nSorry you ran out of guesses, you lose!"
+		break
+	else
+	end
 
 	
 	counter +=	1
