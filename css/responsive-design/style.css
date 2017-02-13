@@ -26,7 +26,31 @@ figure {
   margin-right: 0px;
 }
 
+
 figcaption {
   font-style: italic;
   text-align: right;
 }
+
+main {
+  width: 60%;
+  display: inline-block;
+  vertical-align: text-top;
+   padding: 15px;
+
+}
+
+section#external-links {
+  width: 10%;
+  display: inline-block;
+  vertical-align: text-top;
+  padding: 15px;
+}
+
+body {
+  max-width: 960px;
+  min-width: 350px;
+
+}
+
+
