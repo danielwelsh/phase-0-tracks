@@ -24,16 +24,18 @@ class House
 	
 	#method calc_price_per_foot
 	def price_per_foot
+		#This will be returned becuase of implicit return.
 		price_foot = @p_year1 / @sq_foot
-		#Allows a calculation to be performed that tells price per square foot. 
-		#This method can be made as a private method that only uses instance variables
+		#Allows a calculation to be performed that tells price per square foot. This method can be made as a private method that only uses instance variables
 	end
 		
 
 	#method capital_gains
-		#Calculation of the year over year loss or appreciation in capital gains that has
-		#affected the house
-		#Like the method before this one is private and does not need to be passed instance variables
+	def capital_gains
+		change =  @p_year1 - @p_year2
+		#Calculation of the year over year loss or appreciation in capital gains that has affected the house. Like the method before this one is private and does not need to be passed instance variables. Because of implicit return this amount will be returned
+	end
+		
 
 
 
