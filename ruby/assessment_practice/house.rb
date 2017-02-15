@@ -6,7 +6,7 @@
 class House
 
 	#determine and create setter/getter methods
-
+	attr_reader :p_year1, :p_year2, :sq_foot
 
 	#method initialize
 	def initialize(p_year1, p_year2, sq_foot)
@@ -40,9 +40,6 @@ class House
 		#Calculation of the year over year loss or appreciation in capital gains that has affected the house. Like the method before this one is private and does not need to be passed instance variables. Because of implicit return this amount will be returned
 	end
 	
-
-
-
 
 
 end
