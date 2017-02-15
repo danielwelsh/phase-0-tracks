@@ -8,6 +8,13 @@ describe House do
   end
 
   it "1 year capital gains calculation" do 
-    expect(house.capital_gains). to eq 50000
+    expect(house.capital_gains).to eq 50000
+  end
+
+  it "prints all the internal calculations" do 
+    expect(house.print_house).to eq ("This house costs $180 a square foot and changed in value by $50000 from last year.")
+
+
+  end
 
 end
