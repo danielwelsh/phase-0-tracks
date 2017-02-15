@@ -21,10 +21,11 @@ class City
 		#max_home
 		#min_home
 
+
+
 	#method avg_home
 	def avg_home
 		
-
 		#Summing all the home values in the city by iterating through all the homes
 		total = 0
 		@houses.each do |house|
@@ -33,18 +34,29 @@ class City
 
 		#The average is calculated
 		avg = total / @houses.length
-	
-		
+
+		"The average price of a home is $#{avg}."
 
 	end
 
 	#method max_home
+	def max_city_price
 		#finds the maximum home value in that city
+		prices = []
+		@houses.each do |house|
+			prices << house.p_year1
+		end
+		max = prices.max 
 		#returns statement that says "The maximum home value in ___ city is ___"
+	end
+
+		
 
 	#method min_home 
 		#finds the minimum home value in that city
 		#returns statement that says "The minimum home value in ___ city is ___"
+
+	#method market_value_increase
 
 end
 
