@@ -8,8 +8,12 @@ class City
 
 
 	#method initialize
+	def initialize
 		#reads that hash that was created in the house class and creates an instance based on the city symbol
 		#The loop to create all the instances of cities will be done using driver code. 
+		@houses = []
+	end
+		
 
 	#method output_city_data
 		#nicly outputs the other city wide calculations that were done. 
