@@ -7,7 +7,9 @@ class City
 	#determine and set setter/getter methods
 	attr_accessor :houses
 
-	#method initialize
+
+
+
 	def initialize
 		#reads that hash that was created in the house class and creates an instance based on the city symbol
 		#The loop to create all the instances of cities will be done using driver code. 
@@ -23,7 +25,7 @@ class City
 
 
 
-	#method avg_home
+
 	def avg_home
 		
 		#Summing all the home values in the city by iterating through all the homes
@@ -35,22 +37,36 @@ class City
 		#The average is calculated
 		avg = total / @houses.length
 
-		"The average price of a home is $#{avg}."
 
+		"The average price of a home is $#{avg}."
 	end
 
-	#method max_home
+
+
+	
 	def max_city_price
+
 		#finds the maximum home value in that city
 		prices = []
 		@houses.each do |house|
 			prices << house.p_year1
 		end
 		max = prices.max 
-		#returns statement that says "The maximum home value in ___ city is ___"
+
+
+		"The maximum price of a home is $#{max}"
 	end
 
 		
+	def min_city_price
+		prices = []
+		@houses.each do |house|
+			prices << house.p_year1
+		end
+		min = prices.min
+
+		"The minimum price of a home is $#{min}"
+	end
 
 	#method min_home 
 		#finds the minimum home value in that city
