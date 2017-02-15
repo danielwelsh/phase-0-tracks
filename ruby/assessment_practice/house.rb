@@ -9,22 +9,34 @@ class House
 
 
 	#method initialize
+	def initialize(p_year1, p_year2, sq_foot)
+		@p_year1 = p_year1
+		@p_year2 = p_year2
+		@sq_foot = sq_foot
 		#Creates an instance of each house 
 		#Sets all the instance variables that have been passed in as parameters
-
-	#method add house to list
-		#Takes in external parameters and allows the houses information to be updated
+	end
+		
 
 	#method house info
 		#This method prints all the private methods in a nice way
 
+	
 	#method calc_price_per_foot
+	def price_per_foot
+		price_foot = @p_year1 / @sq_foot
 		#Allows a calculation to be performed that tells price per square foot. 
 		#This method can be made as a private method that only uses instance variables
+	end
+		
 
 	#method capital_gains
 		#Calculation of the year over year loss or appreciation in capital gains that has
 		#affected the house
 		#Like the method before this one is private and does not need to be passed instance variables
+
+
+
+
 
 end
