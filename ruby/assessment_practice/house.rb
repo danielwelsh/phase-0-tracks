@@ -19,7 +19,11 @@ class House
 		
 
 	#method house info
+	def print_house
 		#This method prints all the private methods in a nice way
+		"This house costs $#{price_per_foot} a square foot and changed in value by $#{capital_gains} from last year."
+	end
+		
 
 	
 	#method calc_price_per_foot
@@ -35,7 +39,7 @@ class House
 		change =  @p_year1 - @p_year2
 		#Calculation of the year over year loss or appreciation in capital gains that has affected the house. Like the method before this one is private and does not need to be passed instance variables. Because of implicit return this amount will be returned
 	end
-		
+	
 
 
 
