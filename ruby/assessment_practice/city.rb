@@ -5,7 +5,7 @@ require_relative 'house'
 
 class City
 	#determine and set setter/getter methods
-
+	attr_accessor :houses
 
 	#method initialize
 	def initialize
@@ -16,17 +16,27 @@ class City
 		
 
 	#method output_city_data
-		#nicly outputs the other city wide calculations that were done. 
+		#nicely outputs the other city wide calculations that were done. 
 		#avg_home
 		#max_home
 		#min_home
 
 	#method avg_home
-		#iterates through each home in the city
-			#adds the values up in a holding variable
-		#divides by the number of houses in that city
+	def avg_home
+		
 
-		#This can be done as a private function
+		#Summing all the home values in the city by iterating through all the homes
+		total = 0
+		@houses.each do |house|
+			total += house.p_year1
+		end
+
+		#The average is calculated
+		avg = total / @houses.length
+	
+		
+
+	end
 
 	#method max_home
 		#finds the maximum home value in that city
@@ -36,12 +46,14 @@ class City
 		#finds the minimum home value in that city
 		#returns statement that says "The minimum home value in ___ city is ___"
 
-
-
-
-
-
-
-
-
 end
+
+
+
+edmonton = City.new
+house1 = House.new(450000,400000,2500)
+house2 = House.new(400000,350000,2500)
+edmonton.houses << house1
+edmonton.houses << house2
+puts edmonton.avg_home
+
