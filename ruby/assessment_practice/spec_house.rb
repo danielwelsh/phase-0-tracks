@@ -7,4 +7,7 @@ describe House do
     expect(house.price_per_foot).to eq 180
   end
 
+  it "1 year capital gains calculation" do 
+    expect(house.capital_gains). to eq 50000
+
 end
