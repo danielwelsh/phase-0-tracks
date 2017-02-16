@@ -21,6 +21,13 @@ end
 
 
 
+
+
+
+
+
+#CREATION OF INSTANCES
+
 #Data that is used to create all the instances
 #Array for prices today
 year1_prices = [400000, 500000, 600000, 450000, 800000, 700000, 500000, 320000, 475000, 899000, 999000, 675000, 500000]
@@ -29,7 +36,7 @@ year2_prices = [450000, 550000, 675000, 800000, 950000, 500000, 375000, 890000, 
 #Square foot values that can be used
 square_foot = [2500, 4000, 1500, 1000, 700, 5000, 7000, 2200, 1800, 1500, 1100, 3400, 2800]
 #Cities
-cities = {edmonton: '', calgary: '', vancouver: '', toronto: ''}
+cities = {Edmonton: '', Calgary: '', Vancouver: '', Toronto: ''}
 
 
 #The country instance is created
@@ -53,10 +60,59 @@ canada.housing_market << cities
 
 
 
+
+
+
+
+
+
+
+
+#USER INTERFACE
+
+
+
 #Asks the users if they want a market overview or by the city level
-puts "Would you like a Candian Market overview"
+option = ''
+loop do 
+	puts "\nWould you like a Canadian Market overview or individual city analysis? (enter 'o' or 'c)"
+	option = gets.chomp.to_s
+	if option == 'o' || option =='c'
+		break
+	else
+		puts "That is invalid input. Please try again."
+	end
+end
 
 
+
+
+#Paths for Market Overview of city analysis
+if option == 'o'
+	#This method still needs to be written
+elsif option == 'c'
+	puts "Please enter the city you would like to anlayze:"
+	puts "Your options are:"
+	cities.each do |city, city_instance|
+		puts city
+	end
+
+	#Takes and validates the user's input
+	option = ''
+	loop do 
+		puts "\nYour choice:"
+		option = gets.chomp.to_s
+		if cities.include? option 
+			break
+		else
+			puts "That is invalid input. Please try again."
+		end
+	end
+
+
+else
+end
+	
 
 
 puts cities[:edmonton].output_city
@@ -64,26 +120,17 @@ puts cities[:edmonton].output_city
 #Ask the user what city they would like a report on.
 
 
-#
-
-
-
-# #Create all the houses that will be placed into one city
-# house1 = House.new(450000,400000,2500)
-# house2 = House.new(400000,350000,2500)
-
-
-# #Create city and place houses into that city
-# edmonton = City.new 
-# edmonton.houses << house1
-# edmonton.houses << house2
-
-
-# #Create country and place of cities into that country
 
 
 
 
 
 
-#Driver Code
+
+
+
+
+
+
+
+
