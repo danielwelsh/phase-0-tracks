@@ -59,6 +59,8 @@ class City
 
 		
 	def min_city_price
+
+		#finds the minimum home value in that city
 		prices = []
 		@houses.each do |house|
 			prices << house.p_year1
@@ -68,11 +70,40 @@ class City
 		"The minimum price of a home is $#{min}"
 	end
 
-	#method min_home 
-		#finds the minimum home value in that city
-		#returns statement that says "The minimum home value in ___ city is ___"
-
 	#method market_value_increase
+
+	def market_value_increase
+		prices1 = []
+		prices2 = []
+
+		@houses.each do |house|
+			prices1 << house.p_year1
+			prices2 << house.p_year2
+		end
+
+		value_change = 0
+
+		#Collecting the increase in value throughout whole city
+		i = 0
+		while i < prices1.length
+			value_change += prices1[i] - prices2[i]
+			i += 1
+		end
+		
+
+		#Collecting the worth of property during base year
+		base_worth = 0
+		prices2.each do |house|
+			base_worth += house
+		end
+		
+
+		#Calculating final increase
+		change = ((value_change.to_f / base_worth.to_f) * 100).floor
+		puts change
+
+		"The housing market's average price changed by #{change} percent this year."
+	end
 
 end
 
@@ -83,5 +114,5 @@ house1 = House.new(450000,400000,2500)
 house2 = House.new(400000,350000,2500)
 edmonton.houses << house1
 edmonton.houses << house2
-puts edmonton.avg_home
+puts edmonton.market_value_increase
 
