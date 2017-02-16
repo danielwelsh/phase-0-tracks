@@ -17,12 +17,9 @@ class City
 	end
 		
 
-	#method output_city_data
-		#nicely outputs the other city wide calculations that were done. 
-		#avg_home
-		#max_home
-		#min_home
-
+	def output_city
+		"#{avg_home} #{max_city_price} #{min_city_price} #{market_value_increase}" 
+	end
 
 
 
@@ -54,7 +51,7 @@ class City
 		max = prices.max 
 
 
-		"The maximum price of a home is $#{max}"
+		"The maximum price of a home is $#{max}."
 	end
 
 		
@@ -67,10 +64,10 @@ class City
 		end
 		min = prices.min
 
-		"The minimum price of a home is $#{min}"
+		"The minimum price of a home is $#{min}."
 	end
 
-	#method market_value_increase
+
 
 	def market_value_increase
 		prices1 = []
@@ -81,9 +78,9 @@ class City
 			prices2 << house.p_year2
 		end
 
-		value_change = 0
 
 		#Collecting the increase in value throughout whole city
+		value_change = 0
 		i = 0
 		while i < prices1.length
 			value_change += prices1[i] - prices2[i]
