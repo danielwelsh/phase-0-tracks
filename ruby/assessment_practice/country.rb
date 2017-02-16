@@ -91,23 +91,30 @@ end
 if option == 'o'
 	#This method still needs to be written
 elsif option == 'c'
+
+	#This list is used to compare input later
+	cities_list = []
 	puts "Please enter the city you would like to anlayze:"
 	puts "Your options are:"
 	cities.each do |city, city_instance|
 		puts city
+		cities_list << city.to_s.downcase
 	end
 
 	#Takes and validates the user's input
 	option = ''
 	loop do 
 		puts "\nYour choice:"
-		option = gets.chomp.to_s
-		if cities.include? option 
+		option = gets.chomp.to_s.downcase
+		if cities_list.include? option 
 			break
 		else
 			puts "That is invalid input. Please try again."
 		end
 	end
+
+	puts "In #{option.capitalize} #{cities[option.capitalize.to_sym].output_city}"
+
 
 
 else
@@ -115,7 +122,7 @@ end
 	
 
 
-puts cities[:edmonton].output_city
+# puts cities[:edmonton].output_city
 
 #Ask the user what city they would like a report on.
 
