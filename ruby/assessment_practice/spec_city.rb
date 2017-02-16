@@ -36,4 +36,11 @@ describe City do
   expect(city.market_value_increase).to eq ("The housing market's average price changed by 13 percent this year.")
   end 
 
+  it "properly outputs all the statisitcs of that city." do 
+  house1 = House.new(450000,400000,2500)
+  house2 = House.new(400000,350000,2500)
+  city.houses << house1
+  city.houses << house2
+  expect(city.output_city).to eq ("The average price of a home is $425000. The maximum price of a home is $450000 The housing market's average price changed by 13 percent this year.")
+
 end
