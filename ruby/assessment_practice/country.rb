@@ -10,6 +10,8 @@ class Country
 	def initialize
 		#create the hash/array that stores all the city data. 
 		@country_housing_market = []
+
+		#DATA TO CREATE INSTANCES
 		#Array for prices today
 		@year1_prices = [400000, 500000, 600000, 450000, 800000, 700000, 500000, 320000, 475000, 899000, 999000, 675000, 500000]
 		#Array for last years prices
@@ -21,6 +23,9 @@ class Country
 	end
 		
 
+
+
+
 	def make_city_list 
 		cities_list = []
 		@cities.each do |city, city_instance|
@@ -29,6 +34,9 @@ class Country
 		end
 		cities_list
 	end
+
+
+
 
 
 	def instance_creation
@@ -47,91 +55,99 @@ class Country
 		@country_housing_market << @cities
 	end
 
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# #USER INTERFACE
+
+
+# #The country instance is created
+# canada = Country.new
+# canada.instance_creation
+
+
+
+
+# #STARTS LOOP TO ALLOW USER TO USE INTERFACE AS MANY TIMES AS THEY WOULD LIKE. 
+# option = ''
+# loop do 
+# 	puts "\nWould you like a Canadian Market overview or individual city analysis? (enter 'o' or 'c or 'done')"
+# 	option = gets.chomp.to_s
+	
+# 	#Conditional branch that takes user down desired branch
+# 	if option == 'o' || option =='c'
+		
+# 		#Paths for Market Overview of city analysis
+# 		if option == 'o'
+# 			#This method still needs to be written
+
+
+# 		elsif option == 'c'
+
+# 			#This list is used to compare input later
+			
+# 			puts "Please enter the city you would like to anlayze:"
+# 			puts "Your options are:"
+# 			cities_list = canada.make_city_list
+
+# 			#Takes and validates the user's input
+# 			option = ''
+# 			loop do 
+# 				puts "\nYour choice:"
+# 				option = gets.chomp.to_s.downcase
+# 				if cities_list.include? option 
+# 					puts "\nIn #{option.capitalize}:"
+# 					#FIXME: canada.cities needs to be written in a way that would allow the country name to change. 
+# 					puts "#{canada.cities[option.capitalize.to_sym].output_city}"
+# 					break
+# 				else
+# 					puts "That is invalid input. Please try again."
+# 				end
+# 			end
 		
 
+# 		else
 
-end
-
-
-
+# 		end
 
 
 
 
 
-#DATA TO CREATE INSTANCES
+# 	elsif option == 'done'
+# 		break
+# 	else
+# 		puts "That is invalid input. Please try again."
+# 	end
+
+
+# end
 
 
 
 
-
-#The country instance is created
-canada = Country.new
-canada.instance_creation
-
-
-
-
-
-
-
-
-
-
-#USER INTERFACE
-
-
-
-#Asks the users if they want a market overview or by the city level
-option = ''
-loop do 
-	puts "\nWould you like a Canadian Market overview or individual city analysis? (enter 'o' or 'c or done)"
-	option = gets.chomp.to_s
-	if option == 'o' || option =='c'
-		break
-	elsif option == 'done'
-		
-	else
-		puts "That is invalid input. Please try again."
-	end
-end
-
-
-
-
-#Paths for Market Overview of city analysis
-if option == 'o'
-	#This method still needs to be written
-elsif option == 'c'
-
-	#This list is used to compare input later
-	
-	puts "Please enter the city you would like to anlayze:"
-	puts "Your options are:"
-	cities_list = canada.make_city_list
-
-	#Takes and validates the user's input
-	option = ''
-	loop do 
-		puts "\nYour choice:"
-		option = gets.chomp.to_s.downcase
-		if cities_list.include? option 
-			puts "\nIn #{option.capitalize}:"
-			#FIXME: canada.cities needs to be written in a way that would allow the country name to change. 
-			puts "#{canada.cities[option.capitalize.to_sym].output_city}"
-			break
-		else
-			puts "That is invalid input. Please try again."
-		end
-	end
-else
-end
 	
 
 
-# puts cities[:edmonton].output_city
+# # puts cities[:edmonton].output_city
 
-#Ask the user what city they would like a report on.
+# #Ask the user what city they would like a report on.
 
 
 
