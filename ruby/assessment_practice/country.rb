@@ -29,7 +29,6 @@ class Country
 	def make_city_list 
 		cities_list = []
 		@cities.each do |city, city_instance|
-			puts city
 			cities_list << city.to_s.downcase
 		end
 		cities_list
@@ -58,9 +57,23 @@ class Country
 
 
 
-	def market_total_value(city_name)
-		value = @cities[city_name.capitalize.to_sym].total_value
-		# cities[option.capitalize.to_sym].output_city
+	def market_total_value
+		cities = make_city_list
+		value = 0 
+		cities.each do |city|
+			value += @cities[city.capitalize.to_sym].total_value
+		end
+		value
+	end
+
+	def total_market_value_increase
+		cities = make_city_list
+		increase = 0 
+		cities.each do |city|
+			increase += @cities[city.capitalize.to_sym].market_value_increase.to_i
+		end
+		increase 
+		
 	end
 
 
@@ -113,6 +126,7 @@ end
 # 			puts "Please enter the city you would like to anlayze:"
 # 			puts "Your options are:"
 # 			cities_list = canada.make_city_list
+# 			puts cities_list
 
 # 			#Takes and validates the user's input
 # 			option = ''
