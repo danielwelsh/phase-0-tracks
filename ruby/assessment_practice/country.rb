@@ -63,17 +63,22 @@ class Country
 		cities.each do |city|
 			value += @cities[city.capitalize.to_sym].total_value
 		end
-		value
+		"The market's total value is #{value}"
 	end
 
 	def total_market_value_increase
 		cities = make_city_list
-		increase = 0 
+		change = 0 
 		cities.each do |city|
-			increase += @cities[city.capitalize.to_sym].market_value_increase.to_i
+			change += @cities[city.capitalize.to_sym].market_value_dollar_increase.to_i
 		end
-		increase 
-		
+		change 
+		"The market's value changed by #{increase} percent"
+	end
+
+
+	def output_country
+		puts "#{market_total_value} #{total_market_value_increase}" 
 	end
 
 
@@ -95,71 +100,71 @@ end
 
 
 
-# #USER INTERFACE
+#USER INTERFACE
 
 
-# #The country instance is created
-# canada = Country.new
-# canada.instance_creation
+#The country instance is created
+canada = Country.new
+canada.instance_creation
 
 
 
 
-# #STARTS LOOP TO ALLOW USER TO USE INTERFACE AS MANY TIMES AS THEY WOULD LIKE. 
-# option = ''
-# loop do 
-# 	puts "\nWould you like a Canadian Market overview or individual city analysis? (enter 'o' or 'c or 'done')"
-# 	option = gets.chomp.to_s
+#STARTS LOOP TO ALLOW USER TO USE INTERFACE AS MANY TIMES AS THEY WOULD LIKE. 
+option = ''
+loop do 
+	puts "\nWould you like a Canadian Market overview or individual city analysis? (enter 'o' or 'c or 'done')"
+	option = gets.chomp.to_s
 	
-# 	#Conditional branch that takes user down desired branch
-# 	if option == 'o' || option =='c'
+	#Conditional branch that takes user down desired branch
+	if option == 'o' || option =='c'
 		
-# 		#Paths for Market Overview of city analysis
-# 		if option == 'o'
-# 			#This method still needs to be written
+		#Paths for Market Overview of city analysis
+		if option == 'o'
+			#This method still needs to be written
+			canada.output_country
 
+		elsif option == 'c'
 
-# 		elsif option == 'c'
-
-# 			#This list is used to compare input later
+			#This list is used to compare input later
 			
-# 			puts "Please enter the city you would like to anlayze:"
-# 			puts "Your options are:"
-# 			cities_list = canada.make_city_list
-# 			puts cities_list
+			puts "Please enter the city you would like to anlayze:"
+			puts "Your options are:"
+			cities_list = canada.make_city_list
+			puts cities_list
 
-# 			#Takes and validates the user's input
-# 			option = ''
-# 			loop do 
-# 				puts "\nYour choice:"
-# 				option = gets.chomp.to_s.downcase
-# 				if cities_list.include? option 
-# 					puts "\nIn #{option.capitalize}:"
-# 					#FIXME: canada.cities needs to be written in a way that would allow the country name to change. 
-# 					puts "#{canada.cities[option.capitalize.to_sym].output_city}"
-# 					break
-# 				else
-# 					puts "That is invalid input. Please try again."
-# 				end
-# 			end
+			#Takes and validates the user's input
+			option = ''
+			loop do 
+				puts "\nYour choice:"
+				option = gets.chomp.to_s.downcase
+				if cities_list.include? option 
+					puts "\nIn #{option.capitalize}:"
+					#FIXME: canada.cities needs to be written in a way that would allow the country name to change. 
+					puts "#{canada.cities[option.capitalize.to_sym].output_city}"
+					break
+				else
+					puts "That is invalid input. Please try again."
+				end
+			end
 		
 
-# 		else
+		else
 
-# 		end
-
-
+		end
 
 
 
-# 	elsif option == 'done'
-# 		break
-# 	else
-# 		puts "That is invalid input. Please try again."
-# 	end
 
 
-# end
+	elsif option == 'done'
+		break
+	else
+		puts "That is invalid input. Please try again."
+	end
+
+
+end
 
 
 
@@ -167,9 +172,9 @@ end
 	
 
 
-# # puts cities[:edmonton].output_city
+# puts cities[:edmonton].output_city
 
-# #Ask the user what city they would like a report on.
+#Ask the user what city they would like a report on.
 
 
 
