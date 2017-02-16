@@ -4,9 +4,10 @@
 require_relative 'house'
 
 class City
+
+
 	#determine and set setter/getter methods
 	attr_accessor :houses
-
 
 
 
@@ -17,9 +18,11 @@ class City
 	end
 		
 
+
 	def output_city
-		"#{avg_home} #{max_city_price} #{min_city_price} #{market_value_increase}" 
+		puts "#{avg_home} #{max_city_price} #{min_city_price} #{market_value_increase}" 
 	end
+
 
 
 
@@ -40,6 +43,7 @@ class City
 
 
 
+
 	
 	def max_city_price
 
@@ -54,6 +58,8 @@ class City
 		"The maximum price of a home is $#{max}."
 	end
 
+
+
 		
 	def min_city_price
 
@@ -66,6 +72,8 @@ class City
 
 		"The minimum price of a home is $#{min}."
 	end
+
+
 
 
 
@@ -97,19 +105,26 @@ class City
 
 		#Calculating final increase
 		change = ((value_change.to_f / base_worth.to_f) * 100).floor
-		puts change
 
 		"The housing market's average price changed by #{change} percent this year."
 	end
 
+
+	def total_value
+		prices1 = []
+		@houses.each do |house|
+			prices1 << house.p_year1
+		end
+
+		worth = 0
+		prices1.each do |house|
+			worth += house
+		end
+		worth
+	end 
+
+
 end
 
 
-
-edmonton = City.new
-house1 = House.new(450000,400000,2500)
-house2 = House.new(400000,350000,2500)
-edmonton.houses << house1
-edmonton.houses << house2
-puts edmonton.market_value_increase
 
