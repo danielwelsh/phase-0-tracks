@@ -56,6 +56,14 @@ class Country
 	end
 
 
+
+
+	def market_total_value(city_name)
+		value = @cities[city_name.capitalize.to_sym].total_value
+		# cities[option.capitalize.to_sym].output_city
+	end
+
+
 end
 
 
