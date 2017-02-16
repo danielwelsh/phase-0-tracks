@@ -28,13 +28,12 @@ describe City do
   expect(city.min_city_price).to eq("The minimum price of a home is $400000")
   end
 
-  it "house market % price increase that was seen between this year and last"
+  it "house market percent price increase that was seen between this year and last" do
   house1 = House.new(450000,400000,2500)
   house2 = House.new(400000,350000,2500)
   city.houses << house1
   city.houses << house2
-
-  expect(city.market_value_increase).to eq ("The housing market increase by price by and average of ")
+  expect(city.market_value_increase).to eq ("The housing market's average price changed by 13 percent this year.")
   end 
 
 end
