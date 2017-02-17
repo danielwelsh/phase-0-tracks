@@ -13,8 +13,6 @@ describe House do
 
   it "prints all the internal calculations" do 
     expect(house.print_house).to eq ("This house costs $180 a square foot and changed in value by $50000 from last year.")
-
-
   end
 
 end

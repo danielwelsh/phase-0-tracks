@@ -60,4 +60,15 @@ describe City do
   expect(city.price_per_foot).to be > 10
   end
 
+
+
 end
+
+
+
+
+
+
+
+
+
