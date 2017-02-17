@@ -44,12 +44,20 @@ describe City do
   expect(city.output_city).to eq ("The average price of a home is $425000. The maximum price of a home is $450000. The minimum price of a home is $400000. The housing market's average price changed by 13 percent this year.")
   end 
 
-  it "total value of houses" fo 
+  it "total value of houses" do 
   house1 = House.new(450000,400000,2500)
   house2 = House.new(400000,350000,2500)
   city.houses << house1
   city.houses << house2
   expect(city.total_value).to eq (850000)
+  end
+
+  it "average price per square foot that is seen in the city." do 
+  house1 = House.new(450000,400000,2500)
+  house2 = House.new(400000,350000,2500)
+  city.houses << house1
+  city.houses << house2
+  expect(city.price_per_foot).to be > 10
   end
 
 end
