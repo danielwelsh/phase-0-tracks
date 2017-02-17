@@ -110,6 +110,43 @@ class City
 	end
 
 
+
+
+	def market_value_output_num
+		prices1 = []
+		prices2 = []
+
+		@houses.each do |house|
+			prices1 << house.p_year1
+			prices2 << house.p_year2
+		end
+
+
+		#Collecting the increase in value throughout whole city
+		value_change = 0
+		i = 0
+		while i < prices1.length
+			value_change += prices1[i] - prices2[i]
+			i += 1
+		end
+		
+
+		#Collecting the worth of property during base year
+		base_worth = 0
+		prices2.each do |house|
+			base_worth += house
+		end
+		
+
+		#Calculating final increase
+		change = ((value_change.to_f / base_worth.to_f) * 100).floor
+
+	end
+
+
+
+
+
 	def total_value
 		prices1 = []
 		@houses.each do |house|
@@ -124,7 +161,62 @@ class City
 	end 
 
 
+	def price_per_foot
+		market_value = 0
+		@houses.each do |house|
+			market_value += house.p_year1
+		end
+		square_feet = 0
+		@houses.each do |house|
+			square_feet += house.sq_foot
+		end
+
+		price_foot = market_value / square_feet
+	end
+
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
