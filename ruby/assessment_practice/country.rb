@@ -57,30 +57,47 @@ class Country
 
 
 
+
 	def market_total_value
 		cities = make_city_list
 		value = 0 
 		cities.each do |city|
 			value += @cities[city.capitalize.to_sym].total_value
 		end
-		"The market's total value is #{value}"
+		"The market's total value is $#{value}."
 	end
+
+
+
+
 
 	def total_market_value_increase
 		cities = make_city_list
 		change = 0 
 		cities.each do |city|
-			change += @cities[city.capitalize.to_sym].market_value_dollar_increase.to_i
+			change += @cities[city.capitalize.to_sym].market_value_output_num.to_i
 		end
 		change 
-		"The market's value changed by #{increase} percent"
+		"In the last year the market's value changed by #{change} percent."
 	end
+
+
 
 
 	def output_country
-		puts "#{market_total_value} #{total_market_value_increase}" 
+		puts "\n#{market_total_value} #{total_market_value_increase} #{price_per_foot}" 
 	end
 
+
+	def price_per_foot
+		cities = make_city_list
+		price = 0
+		cities.each do |city|
+			price += @cities[city.capitalize.to_sym].price_per_foot
+		end
+		price_foot = price / cities.length
+		"On average the Canadian market costs $#{price_foot} per foot."
+	end 
 
 end
 
@@ -108,27 +125,25 @@ canada = Country.new
 canada.instance_creation
 
 
-
-
 #STARTS LOOP TO ALLOW USER TO USE INTERFACE AS MANY TIMES AS THEY WOULD LIKE. 
 option = ''
 loop do 
-	puts "\nWould you like a Canadian Market overview or individual city analysis? (enter 'o' or 'c or 'done')"
+	puts "\nWould you like a Canadian Market overview or individual city overview (enter 'CAN' or 'CITY' or 'done')"
 	option = gets.chomp.to_s
 	
 	#Conditional branch that takes user down desired branch
-	if option == 'o' || option =='c'
+	if option == 'CAN' || option =='CITY'
 		
 		#Paths for Market Overview of city analysis
-		if option == 'o'
+		if option == 'CAN'
 			#This method still needs to be written
 			canada.output_country
 
-		elsif option == 'c'
+		elsif option == 'CITY'
 
 			#This list is used to compare input later
 			
-			puts "Please enter the city you would like to anlayze:"
+			puts "\nPlease enter the city you would like to anlayze:"
 			puts "Your options are:"
 			cities_list = canada.make_city_list
 			puts cities_list
@@ -154,31 +169,16 @@ loop do
 		end
 
 
-
-
-
+	#Breaks loop when done
 	elsif option == 'done'
 		break
+	#Else gets the user to enter input again. 	
 	else
 		puts "That is invalid input. Please try again."
 	end
 
 
 end
-
-
-
-
-	
-
-
-# puts cities[:edmonton].output_city
-
-#Ask the user what city they would like a report on.
-
-
-
-
 
 
 
