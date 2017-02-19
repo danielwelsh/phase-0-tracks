@@ -17,13 +17,40 @@ function longest(string_array) {
 	}
 	// Here we store the index key of the current highest
 	longest_string = 0
-	if ()
+
+	// Start with index position 1, loop over all the index positions
+	
+
+
+	loop1: 
+	for (var i = 0; i < string_array.length; i++) {
+		console.log('outer');
+		console.log(i);
+
+
+
+
+
+		loop2:
+		for (var x = 0; x < 3; x++){
+			if (string_array[x] < string_array[x + 1]) {
+
+				console.log("The string is greater than what you want")
+			}
+
+
+		}
+		// Inner Loop: Loop over the characters comparing 
+			//If character > do nothing
+			// If character < change the index position to the one that was being compared to. break the loop
+		
+	}
 	return array;
 }
 
 
 
-console.log(longest(['hello', 'bye', 'yolo']))
+longest(['hello', 'bye', 'yolo'])
 
 
 
