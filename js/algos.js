@@ -10,6 +10,7 @@
 
 
 
+
 function longest(string_array) {
 	var lengthArray = []
 	// COunt the length of each string
@@ -27,6 +28,8 @@ function longest(string_array) {
 }
 
 
+
+
 function size(obj) {
 	var size = 0;
 	for (var key in obj) {
@@ -34,6 +37,8 @@ function size(obj) {
 		}
 	return size;
 	}	
+
+
 
 
 
@@ -55,23 +60,23 @@ function pair(obj1, obj2) {
 }
 
 
+
+
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 
+
+
 function stringArray(int) {
 	
 	var array_strings = []
-
-
 	for (i = 0; i < int; i++) {
 		array_strings.push(randomString());
 	}
 	return array_strings;
 }
-
-
 
 
 
@@ -97,7 +102,7 @@ console.log(pair(obj1,obj2))
 
 
 // Driver code to get the longest word of 10 lists
-for (i = 0; i < 10; i += 1) {
+for (a = 0; a < 10; a++) {
 	console.log(longest(stringArray(3)));
 }
 
