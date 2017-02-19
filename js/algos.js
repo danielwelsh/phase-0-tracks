@@ -11,46 +11,25 @@
 
 
 function longest(string_array) {
-	var array = []
+	var lengthArray = []
+	// COunt the length of each string
 	for (var i = 0; i < string_array.length; i++) {
-		array.push(string_array[i].length);
+		lengthArray.push(string_array[i].length);
 	}
-	// Here we store the index key of the current highest
-	longest_string = 0
+	// Store the index position of the longest word
+	var longest = Math.max.apply(null, lengthArray);
+	index = lengthArray.indexOf(longest)
+	return string_array[index]
 
 	// Start with index position 1, loop over all the index positions
 	
 
-
-	loop1: 
-	for (var i = 0; i < string_array.length; i++) {
-		console.log('outer');
-		console.log(i);
-
-
-
-
-
-		loop2:
-		for (var x = 0; x < 3; x++){
-			if (string_array[x] < string_array[x + 1]) {
-
-				console.log("The string is greater than what you want")
-			}
-
-
-		}
-		// Inner Loop: Loop over the characters comparing 
-			//If character > do nothing
-			// If character < change the index position to the one that was being compared to. break the loop
-		
-	}
-	return array;
 }
 
 
-
-longest(['hello', 'bye', 'yolo'])
+console.log(longest(['hello', 'bye', 'yolo']))
+console.log(longest(['hello', 'bye', 'yolo', 'hockey', 'how are you']))
+console.log(longest(['hockey', 'football', 'soccer', 'the purple cow']))
 
 
 
