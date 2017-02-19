@@ -55,6 +55,28 @@ function pair(obj1, obj2) {
 }
 
 
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+function stringArray(int) {
+	alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','y','x','z']
+	for (i = 0; i < int; i++) {
+		var rand = getRandomInt(0,10);
+		for (i = 0; i < rand; i++) {
+
+		}
+	}
+	// for the number of times given
+		//generate random number
+		//run loop that number of times
+			//generate another random number between 0-25
+			// pick that number from alphabet array
+			// concatenate that number onto list
+}
+
+
 
 
 var obj1 = {name: "Steven", age: 54}
@@ -64,6 +86,7 @@ var obj2 = {name: "Tamir", age: 54}
 console.log(pair(obj1,obj2))
 
 
+stringArray(6)
 
 
 
