@@ -61,43 +61,49 @@ function getRandomInt(min, max) {
 
 
 function stringArray(int) {
-	alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','y','x','z']
-	for (i = 0; i < int; i++) {
-		var rand = getRandomInt(0,10);
-		for (i = 0; i < rand; i++) {
+	
+	var array_strings = []
 
-		}
+
+	for (i = 0; i < int; i++) {
+		array_strings.push(randomString());
 	}
-	// for the number of times given
-		//generate random number
-		//run loop that number of times
-			//generate another random number between 0-25
-			// pick that number from alphabet array
-			// concatenate that number onto list
+	return array_strings;
 }
 
 
 
 
+
+function randomString() {
+	var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','y','x','z']
+	var rand = getRandomInt(0,10);
+	var string = '';
+
+	for (x = 0; x < rand; x++) {
+		var index = getRandomInt(0,26);
+		string += alphabet[index];
+	}
+	return string;
+}
+
+
+
+// Driver code to determine if a pair or not
 var obj1 = {name: "Steven", age: 54}
 var obj2 = {name: "Tamir", age: 54}
-
-
 console.log(pair(obj1,obj2))
 
 
-stringArray(6)
+
+// Driver code to get the longest word of 10 lists
+for (i = 0; i < 10; i += 1) {
+	console.log(longest(stringArray(3)));
+}
 
 
 
 
 
-
-
-
-
-// console.log(longest(['hello', 'bye', 'yolo']))
-// console.log(longest(['hello', 'bye', 'yolo', 'hockey', 'how are you']))
-// console.log(longest(['hockey', 'football', 'soccer', 'the purple cow']))
 
 
