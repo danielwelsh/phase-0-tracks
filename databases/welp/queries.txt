@@ -1,0 +1,33 @@
+Release 2
+
+2. 
+SELECT * FROM businesses, reviews, users WHERE reviews.business_id = businesses.id;
+
+1|McDonalds|1|4|The burger was okay|1|1|1|Daniel|Welsh
+1|McDonalds|1|4|The burger was okay|1|1|2|Jacob|Welsh
+2|StarBucks|2|3|I like coffee|2|2|1|Daniel|Welsh
+2|StarBucks|2|3|I like coffee|2|2|2|Jacob|Welsh
+2|StarBucks|3|2|I do not like coffee|2|1|1|Daniel|Welsh
+2|StarBucks|3|2|I do not like coffee|2|1|2|Jacob|Welsh
+
+
+3.
+SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment FROM users JOIN businesses, reviews WHERE reviews.user_id = users.id;
+
+Daniel|Welsh|McDonalds|4|The burger was okay
+Daniel|Welsh|StarBucks|4|The burger was okay
+Jacob|Welsh|McDonalds|3|I like coffee
+Jacob|Welsh|StarBucks|3|I like coffee
+Daniel|Welsh|McDonalds|2|I do not like coffee
+Daniel|Welsh|StarBucks|2|I do not like coffee
+
+
+4. 
+SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment FROM users JOIN businesses, reviews WHERE businesses.id = 1;
+
+Daniel|Welsh|McDonalds|4|The burger was okay
+Daniel|Welsh|McDonalds|3|I like coffee
+Daniel|Welsh|McDonalds|2|I do not like coffee
+Jacob|Welsh|McDonalds|4|The burger was okay
+Jacob|Welsh|McDonalds|3|I like coffee
+Jacob|Welsh|McDonalds|2|I do not like coffee
