@@ -1,0 +1,64 @@
+1.
+SELECT * FROM racers;
+1|Daniel Welsh|4|1
+2|Herman Meyer|1|2
+3|Bodie Miller|2|1
+4|Eric Guay|3|3
+
+SELECT * FROM country;
+1|US
+2|Austria
+3|Canada
+
+2.
+UPDATE racers SET country_id=1 WHERE name="Daniel Welsh";
+SELECT * FROM racers, country WHERE racers.country_id = country.id;
+1|Daniel Welsh|4|1|1|US
+2|Herman Meyer|1|2|2|Austria
+3|Bodie Miller|2|1|1|US
+4|Eric Guay|3|3|3|Canada
+
+3.
+SELECT * FROM racers, country WHERE racers.country_id = country.id;
+1|Daniel Welsh|4|1|1|US
+2|Herman Meyer|1|2|2|Austria
+3|Bodie Miller|2|1|1|US
+4|Eric Guay|3|3|3|Canada
+
+4. 
+SELECT racers.name, country.name FROM racers JOIN country ON racers.country_id = country.id;
+Daniel Welsh|US
+Herman Meyer|Austria
+Bodie Miller|US
+Eric Guay|Canada
+
+5.
+DELETE FROM racers WHERE name="Daniel Welsh";
+SELECT * FROM racers;
+2|Herman Meyer|1|2
+3|Bodie Miller|2|1
+4|Eric Guay|3|3
+
+
+Extra Qeuries:
+
+With this join I was able to return joned data that diplayed all skier's from the US and their name. 
+SELECT racers.name, country.name FROM racers JOIN country ON racers.country_id = country.id WHERE country_id="1";
+Bodie Miller|US
+
+
+Here is an Inner Join that returns all pairings that exist.
+
+
+SELECT racers.name, country.name FROM racers INNER JOIN country ON racers.country_id = country.id;
+Herman Meyer|Austria
+Bodie Miller|US
+Eric Guay|Canada
+
+
+Here is more documentation of Inner, Left, Right, and Full joins. http://www.sql-join.com/sql-join-types
+
+
+
+
+
