@@ -38,6 +38,8 @@ class Housing
 		@db = SQLite3::Database.new('houses.db')
 		@db.execute(create_table_cmd_1)
 		@db.execute(create_table_cmd_2)
+		@db.type_translation = true
+		@db.results_as_hash = true
 
 		populate_db
 				
@@ -69,27 +71,41 @@ class Housing
 		@db.execute("INSERT INTO house_info (year_1, year_2, city_id, square_feet) VALUES ( ?, ?, ?, ?)", [@year_1.sample, @year_2.sample, city_index, @square_foot.sample])
 	end
 
-	def market_appriciation(user_input)
+
+
+	def market_appriciation(market_city)
 		
 		#Find the FOREIGN KEY VALUE for that city
 		city = @db.execute("SELECT cities.id FROM cities WHERE city = '#{user_input}';")
-		number = 0
-		city.each do |num|
-			number = num
-		end
+		city = city[0]
+		city = city['id']
 
-		p number
 
 		#Return all data for that city
-		houses = @db.execute("SELECT * FROM house_info WHERE city_id = 1;")
-	
+		houses = @db.execute("SELECT * FROM house_info WHERE city_id = #{city} ;")
 		
 		#divided by 2 to see the market appriciation
-		#
+		year_1_total = 0
+		year_2_total = 0
+		
+
+		houses.each do |house|
+			year_1_total += house['year_1']
+			year_2_total += house['year_2']
+		end
+		p year_1_total
+		p year_2_total
+		percent = ((year_2_total.to_f - year_1_total.to_f) / year_2_total.to_f) * 100
 	end
 
-	def market_per_foot(user_input)
 
+
+
+	def market_per_foot(market_city)
+		#Find the FOREIGN KEY VALUE for that city
+		city = @db.execute("SELECT cities.id FROM cities WHERE city = '#{user_input}';")
+		city = city[0]
+		city = city['id']
 	end
 
 
@@ -105,7 +121,7 @@ end
 
 
 house = Housing.new
-house.market_appriciation("Edmonton")
+p house.market_appriciation("Edmonton")
 
 
 
