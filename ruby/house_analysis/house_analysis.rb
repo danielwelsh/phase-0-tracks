@@ -106,6 +106,20 @@ class Housing
 		city = @db.execute("SELECT cities.id FROM cities WHERE city = '#{user_input}';")
 		city = city[0]
 		city = city['id']
+
+		#Return all the data for that city
+		houses = @db.execute("SELECT * FROM house_info WHERE city_id = #{city} ;")
+
+		#divided by 2 to see the market appriciation
+		year_1_total = 0
+		square_feet = 0
+		
+
+		houses.each do |house|
+			year_1_total += house['year_1']
+			square_feet += house['square_feet']
+		end
+		price_per_foot = year_1_total / square_feet
 	end
 
 
