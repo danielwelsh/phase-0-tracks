@@ -9,12 +9,29 @@ class Country
 	attr_accessor :country_housing_market, :cities
 
 	def initialize
+
+		#Create and ensure that the databases exist
+		create_table_cmd_1 = <<-SQL
+		CREATE TABLE IF NOT EXISTS house_info (
+			id INTEGER PRIMARY KEY,
+			year_1 VARCHAR(255),
+			year_2 VARCHAR(255),
+			city_id INT,
+			square_feet INT,
+			FOREIGN KEY (city_id) REFERENCES city(id)
+			);
+		SQL
+
+		create_table_cmd_2 = <<-SQL
+		CREATE TABLE IF NOT EXISTS cities (
+			id INTEGER PRIMARY KEY,
+			city VARCHAR(255)
+			);
+		SQL
+
 		db = SQLite3::Database.new('house_info.db')
-		db.execute(create_table_cmd('house_info'))
-		db.execute(create_table_cmd('cities'))
-
-
-		#create all the tables
+		db.execute(create_table_cmd_1)
+		db.execute(create_table_cmd_2)
 
 		#feed data into each of the database tables
 
@@ -168,9 +185,9 @@ loop do
 				puts "\nYour choice:"
 				option = gets.chomp.to_s.downcase
 				if cities_list.include? option 
-					puts "\nIn #{option.capitalize}:"
-					#FIXME: canada.cities needs to be written in a way that would allow the country name to change. 
-					puts "#{canada.cities[option.capitalize.to_sym].output_city}"
+					puts "\nIn #{option.capitalize}:" 
+					puts "#{price_per_foot}"
+					puts "#{total_market_value_increase}"
 					break
 				else
 					puts "That is invalid input. Please try again."

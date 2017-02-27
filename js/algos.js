@@ -105,6 +105,7 @@ console.log(pair(obj1,obj2))
 
 // Driver code to get the longest word of 10 lists
 for (a = 0; a < 10; a++) {
+	console.log(stringArray(3))
 	console.log(longest(stringArray(3)));
 }
 
