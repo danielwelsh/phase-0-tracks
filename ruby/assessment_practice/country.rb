@@ -1,13 +1,27 @@
 
-
+require_relative 'sqlcommands'
 require_relative 'city' 
 require_relative 'house'
+require 'sqlite3'
 
 class Country
 	#determine and set getter/setter methods
 	attr_accessor :country_housing_market, :cities
 
 	def initialize
+		db = SQLite3::Database.new('house_info.db')
+		db.execute(create_table_cmd('house_info'))
+		db.execute(create_table_cmd('cities'))
+
+
+		#create all the tables
+
+		#feed data into each of the database tables
+
+
+		#make sure that the methods below are still able to access the information that is held in the database
+
+
 		#create the hash/array that stores all the city data. 
 		@country_housing_market = []
 
