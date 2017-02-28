@@ -25,4 +25,12 @@
 
 // Create a constructor function that creates homes
 
-function House(year1, year2, sq_feet)
+function House(year1, year2, sq_feet) {
+	console.log("This is testing that nothing is contained");
+	this.year1 = year1;
+	this.year2 = year2;
+	this.sq_feet = sq_feet;
+	console.log(this);
+}
+
+
