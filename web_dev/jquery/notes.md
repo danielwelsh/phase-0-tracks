@@ -62,17 +62,19 @@ Video: https://www.youtube.com/watch?v=khvPMh5Xfks
 	When the browser renders HTML it generates the DOM tree. And we need to work with the DOM tree to add functionality. (Document Object Model). It is small so you never have to worry about including it. 
 
 	Offers traversal and manipulation. 
+	Web apps often deploy as SPA (single page architecture)
+	Angular is another more advanced framework. 
+
 
 	2. When to use it?
+	It means taking on a dependancy that may not be nessesary. 
 
-
-
-
-
-
+	3. Workflow
+	Use the ready function or place the js above the bottom body tag to ensure all HTML selectors are loaded to the DOM. 
 
 
 
 3. Read methods and class documentation to orient to language
+http://api.jquery.com/
 
 4. Play with the new methods in a file to see the functionality
