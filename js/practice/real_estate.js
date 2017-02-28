@@ -31,15 +31,8 @@ function House(year1, year2, sq_feet) {
 
 function appriciation(houseArray) {
 	//Declare value variables
-	var year1_total = 0
-	var year2_total = 0
-
-
-	//Sum the total value of homes in year 1 and 2
-	for (var i = 0; i < houseArray.length; i++) {
-		year1_total += houseArray[i]['year1'];
-		year2_total += houseArray[i]['year2'];
-	}
+	var year1_total = sumArray(houseArray, 'year1')
+	var year2_total = sumArray(houseArray, 'year2')
 
 	//Find the percent increase from year to year
 	percent = (year2_total - year1_total) / year2_total
@@ -47,8 +40,17 @@ function appriciation(houseArray) {
 	//Return statement that declares what the percent increase in the market was
 	return "The housing prices changed by " + percent + "% last year."
 }
-	
 
+
+
+function sumArray(houseArray, dataSummed) {
+	var total = 0
+	//Sum the total value of homes in year 1 and 2
+	for (var i = 0; i < houseArray.length; i++) {
+		total += houseArray[i][dataSummed];
+	}
+	return total
+}
 	
 	
 
