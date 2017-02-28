@@ -45,9 +45,9 @@ var sq_feetArray = [2500, 1500, 800, 500, 2000, 2100]
 var houseArray = []
 
 
-// Create a loop that generates many different houses and stores them in houseList
+// Create a loop that generates many different houses and stores them in houseArray
 for (var x = 0; x < 100; x++) {
-	houseArray.push(house[x] = new House(199, 200, 2000))
+	houseArray.push(house[x] = new House(year1Array[Math.floor(Math.random() * year1Array.length)], year2Array[Math.floor(Math.random() * year2Array.length)], sq_feetArray[Math.floor(Math.random() * sq_feetArray.length)]))
 }
 
 console.log(houseArray)
