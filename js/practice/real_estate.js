@@ -21,25 +21,38 @@
 // Create a constructor function that creates homes
 
 function House(year1, year2, sq_feet) {
-	console.log("This is testing that nothing is contained");
 	this.year1 = year1;
 	this.year2 = year2;
 	this.sq_feet = sq_feet;
-	console.log(this);
 }
 
 
-function appriciation(houseArray) {
+
+
+
+function appriciation(houseArray, currentYear, baseYear) {
 	//Declare value variables
-	var year1_total = sumArray(houseArray, 'year1')
-	var year2_total = sumArray(houseArray, 'year2')
+	var base_year = sumArray(houseArray, baseYear)
+	var current_year = sumArray(houseArray, currentYear)
 
 	//Find the percent increase from year to year
-	percent = (year2_total - year1_total) / year2_total
+	var percent = (current_year - base_year) / base_year
 	percent = Math.round(percent * 100) 
 	//Return statement that declares what the percent increase in the market was
 	return "The housing prices changed by " + percent + "% last year."
 }
+
+
+
+
+function pricePerFoot(houseArray, currentYear) {
+	var sq_feet = sumArray(houseArray, 'sq_feet')
+	var current_year = sumArray(houseArray, currentYear)
+	var price = current_year / sq_feet
+	price = Math.round(price)
+	return "The price per foot in " + currentYear + " is $" + price + "."
+}
+
 
 
 
@@ -51,13 +64,13 @@ function sumArray(houseArray, dataSummed) {
 	}
 	return total
 }
-	
-	
+
+
 
 
 
 var house = new House(199, 200, 20000)
-console.log(house)
+
 
 
 //Data that is used by the loop to populate the housing information. 
@@ -73,4 +86,6 @@ for (var x = 0; x < 100; x++) {
 }
 
 
-console.log(appriciation(houseArray))
+console.log(appriciation(houseArray, 'year2', 'year1'))
+console.log(pricePerFoot(houseArray, 'year2'))
+console.log(pricePerFoot(houseArray, 'year1'))
