@@ -17,5 +17,9 @@ function placeBlackBorder(event) {
 var head = document.getElementById("header");
 head.addEventListener("click", placeBlackBorder);
 
+
+
+//Call the first child element
 var body = document.getElementsByTagName('body');
-console.log(body.firstChild);
+console.log(body);
+console.log(body[0].firstChild);
