@@ -2,10 +2,12 @@
 require 'sinatra'
 require 'students'
 
+
 #write a basic GET route
 #add a query parameter
 # GET /
 get '/' do
+
 	"hello"
 	"#{params[:name]} is #{params[:age]} years old."
 end
@@ -30,3 +32,4 @@ get '/students' do
 	students = db.execute("SELECT * FROM students")
 	students.to_s
 end
+
