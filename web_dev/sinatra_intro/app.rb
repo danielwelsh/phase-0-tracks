@@ -31,6 +31,15 @@ get '/contact' do
   "We are loacated on the moon."
 end
 
+get '/great_job/' do
+  "Great Job #{params[:name]}!"
+end
+
+get '/add/:num1/:num2' do 
+  num1 = params[:num1].to_i
+  num2 = params[:num2].to_i
+  "The numbers added is #{num1 + num2}"
+end
 
 
 # write a GET route that retrieves
